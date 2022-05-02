@@ -1,41 +1,10 @@
 package calc.classes;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Helper {
-    public static float[] fillVariables(){
 
-        Scanner scanner = new Scanner(System.in);
-        float[] numbers = new float[2];
-        try {
-            System.out.print("Geben Sie die erste Zahl ein: ");
-            numbers[0] = scanner.nextFloat();
-            System.out.print("Geben Sie die zweite Zahl ein: ");
-            numbers[1] = scanner.nextFloat();
-        }
-        catch(Exception e){
-            System.out.println("Geben Sie richtige Zahlen ein!");
-            fillVariables();
-        }
-        return numbers;
-    }
-
-    public void validateDivision(){
-
-    }
-    public static String getSign() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Geben Sie den Operator ein, moeglich: '+','-','*','/' : ");
-        String sign = scanner.next(); //variable einlesen / next für string
-        if (sign.equals("+") || sign.equals("-")||sign.equals("*")||sign.equals("/")){
-            return sign;
-        }
-        else{
-            System.out.println("Falscher Operator wurde eingegeben");
-            return "";
-        }
-
-    }
     public static void printMenu(){
         System.out.println("");
         System.out.println("Welche Rechenoperation soll verwendet werden?");
@@ -46,6 +15,37 @@ public class Helper {
         System.out.println(" 5. Programm beenden");
 
     }
+    public static float[] getmultipleNumbers(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Mit wie vielen Zahlen wollen Sie rechnen? ");
+        int count = scanner.nextInt();
+        float[] numbers = new float[count];
+        for (int i = 1; i < count+1; i++) {
+            System.out.println("Geben Sie die "+ i +". Zahl ein: ");
+            float num = scanner.nextFloat();
+            numbers[i-1]= num;
+        }
+        return numbers;
+    }
+    public static float[] gettwoNumbers(){
+        Scanner scanner = new Scanner(System.in);
+        float[] numbers = new float[2];
+        try {
+            System.out.print("Geben Sie die erste Zahl ein: ");
+            numbers[0] = scanner.nextFloat();
+            System.out.print("Geben Sie die zweite Zahl ein: ");
+            numbers[1] = scanner.nextFloat();
+        }
+        catch(Exception e){
+            System.out.println("Geben Sie richtige Zahlen ein!");
+            return gettwoNumbers();
+        }
+        return numbers;
+    }
+    public static void displayResult(float res){
+        String df = new DecimalFormat("0.#####").format(res);
 
+        System.out.printf("Das Ergebnis lautet: "+ df);
+    }
 
 }

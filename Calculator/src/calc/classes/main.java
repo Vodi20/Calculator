@@ -15,21 +15,22 @@ public class main {
             Helper.printMenu();
             System.out.println("Ihre Auswahl: ");
             selection = sc.nextInt();
-            float[] numbers = Helper.fillVariables();
+
             switch(selection){
                 case 1:
-                    Calculate.Addition(numbers);
+                    Calculate.Addition();
                     break;
                 case 2:
-                    Calculate.Subtraction(numbers);
+                    Calculate.Subtraction();
                     break;
                 case 3:
-                    Calculate.Multiplication(numbers);
+                    Calculate.Multiplication();
                     break;
                 case 4:
-                    Calculate.Division(numbers);
+                    Calculate.Division();
                     break;
-                case 0:
+                case 5:
+                    selection = 0;
                     break;
             }
         }
