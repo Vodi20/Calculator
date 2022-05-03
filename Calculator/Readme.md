@@ -1,5 +1,23 @@
 # Taschenrechner
 
+functionmapping:
+  damit man nicht jede Funktion einzeln Verfassen muss, kann man eine Map erstellen, welche aufgrund des eingegebenen Operators die jeweilige lambda expression           ausführt
+  
+        public static final String PLUS = "+"; 
+        public static final String MINUS = "-";
+        public static final String MULTIPLY = "*";
+        public static final String DIVIDE = "/";
+
+        public static final Map<String, BiFunction<Float, Float, Float>> OPERATIONS =  
+                new HashMap<>() {{
+                    put(Calculate.PLUS, (x,y) -> x+y);
+                    put(Calculate.MINUS, (x,y) -> x-y);
+                    put(Calculate.MULTIPLY, (x,y) -> x*y);
+                    put(Calculate.DIVIDE, (x,y) -> x/y);
+                }};
+
+
+
 newBufferedRead: 
 
 Zu beachten ist "throws IOException":
@@ -17,3 +35,4 @@ Zu beachten ist "throws IOException":
                 return "Fehler beim einlesen!";
             }
         }
+
