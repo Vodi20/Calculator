@@ -17,6 +17,7 @@
             
 ### IOException bei FileRead:
   Beim einlesen 
+  
     public static String txtToString(String url) throws IOException {               // Konvertiert txtFile into string
 
         Path path = Paths.get(url);
