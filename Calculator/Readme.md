@@ -35,4 +35,12 @@ Zu beachten ist "throws IOException":
                 return "Fehler beim einlesen!";
             }
         }
+        
+Berechnung mit mehreren Zahlen:
 
+    float[] numbers = Helper.getmultipleNumbers();
+    float res = numbers[0];
+    for(int i=1; i < numbers.length; i++){
+        res = OPERATIONS.get(operator).apply(res, numbers[i]);
+    }
+    Helper.formatResult(res);
